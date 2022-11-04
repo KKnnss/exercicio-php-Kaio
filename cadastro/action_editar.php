@@ -4,6 +4,7 @@
 
     //recebe os dados do formulario
 
+    $id = filter_input(INPUT_POST, 'id');
     $name = filter_input(INPUT_POST, 'name');
     $email = filter_input(INPUT_POST,'email', FILTER_VALIDATE_EMAIL); 
     $idade = filter_input(INPUT_POST, 'idade');  
@@ -15,10 +16,12 @@
     ////verifica se o id o nome e o email etc. são válidos
     if ($id && $name && $email && $idade && $contato && $endereco) {
         
-        $sql = $pdo->prepare("UPDATE tbl_aluno SET nome =:nome, email = :email, idade = :idade, contato = :contato, endereco = :endereco WHERE id = :id");
+       //atualiza os dados
+        $sql->bindValue(':id', $id);
+        $sql = $pdo->prepare("UPDATE tbl_aluno SET nome =:name, email = :email, idade = :idade, contato = :contato, endereco = :endereco WHERE id= :id");
         $sql->bindValue(":nome", $name);
         $sql->bindValue(":email", $email);
-        $sql->bindValue(":idade", $idade);
+        $sql->bindValue(":idade", $idade); 
         $sql->bindValue(":contato", $contato);
         $sql->bindValue(":endereco", $endereco);
         $sql->execute ();
