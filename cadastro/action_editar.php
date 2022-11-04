@@ -17,8 +17,8 @@
     if ($id && $name && $email && $idade && $contato && $endereco) {
         
        //atualiza os dados
-        $sql->bindValue(':id', $id);
-        $sql = $pdo->prepare("UPDATE tbl_aluno SET nome =:name, email = :email, idade = :idade, contato = :contato, endereco = :endereco WHERE id= :id");
+       $sql = $pdo->prepare("UPDATE tbl_aluno SET nome =:nome, email = :email, idade = :idade, contato = :contato, endereco = :endereco WHERE id= :id");
+       $sql->bindValue(':id', $id);
         $sql->bindValue(":nome", $name);
         $sql->bindValue(":email", $email);
         $sql->bindValue(":idade", $idade); 
