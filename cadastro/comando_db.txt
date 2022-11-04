@@ -1,0 +1,18 @@
+crete database cadastrar; 
+
+create table usuario (
+
+id int not null AUTO_INCREMENT PRIMARY KEY,
+nome varchar(100),
+email varchar(100),
+senha varchar(255)
+);
+
+create table tbl_aluno (
+id int  not null AUTO_INCREMENT PRIMARY KEY,
+nome varchar(100),
+email varchar(100),
+idade int,
+contato int,
+endereco varchar(100)
+);
