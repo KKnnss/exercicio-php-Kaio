@@ -1,4 +1,6 @@
-crete database cadastrar; 
+create database cadastrar; 
+
+use cadastrar;
 
 create table usuario (
 
