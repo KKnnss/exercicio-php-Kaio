@@ -2,6 +2,8 @@
 session_start();
     require 'config.php';
 
+    //recebe os dados do formulario
+
     $name = filter_input(INPUT_POST, 'name');
     $email = filter_input(INPUT_POST,'email', FILTER_VALIDATE_EMAIL); 
     $idade = filter_input(INPUT_POST, 'idade');  
@@ -24,7 +26,7 @@ session_start();
         exit;
 
     } else {
-        //caso contrário, vai retorna para página adicionar.php e não registra.
+        //caso contrário, vai retorna para página index.php e não registra.
         header('Location: index.php'); 
         exit;
     }

@@ -20,13 +20,14 @@
 
     $info = [];
 
+    //verifica se tem id
     $id = filter_input(INPUT_GET, 'id');
-
+    //verifica se o id é valido
     if ($id) {
         $sql = $pdo->prepare("SELECT * FROM tbl_aluno Where id = :id");
         $sql-> bindValue(':id', $id);
         $sql-> execute();
-    
+        //pega o primeiro resultado
         if ($sql-> rowCount() > 0) {
             $info = $sql->fetch(PDO::FETCH_ASSOC);
         } else {
@@ -46,6 +47,7 @@
     <h1>Editar Ùsuario</h1>
 
     <form action="action_editar.php" method="post">
+        
         <input type="hidden" name="id" value="<?=$info['id'];?>">
     <div class="mb-3">
         <label for="" class="form-label">

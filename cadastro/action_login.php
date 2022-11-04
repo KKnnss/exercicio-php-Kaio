@@ -3,10 +3,16 @@ session_start();
 ob_start();
 require 'config.php';
 
+//recebe os dados do formulario
+
 $name = filter_input(INPUT_POST, 'name');
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $password = filter_input(INPUT_POST, 'password');
 $password_confirm = filter_input(INPUT_POST, 'password_confirm');
+
+
+
+//verifica se o id, o nome e o email etc. são válidos
 
 if($name && $email && $password && $password_confirm){
     $sql = $pdo->prepare("select * from usuario where email = :email");
